@@ -2,9 +2,17 @@ package uk.ac.ucl.comp0010.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import uk.ac.ucl.comp0010.exception.EmptyRateException;
 
+@Entity
 public class Movie {
+
+  @Id
+  @GeneratedValue
+  Long id;
 
   List<Integer> rates;
 
