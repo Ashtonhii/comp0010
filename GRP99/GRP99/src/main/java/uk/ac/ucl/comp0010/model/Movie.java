@@ -3,6 +3,7 @@ package uk.ac.ucl.comp0010.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import uk.ac.ucl.comp0010.exception.EmptyRateException;
@@ -17,10 +18,13 @@ public class Movie {
   @GeneratedValue
   Long id;
 
-  List<Integer> rates;
+  String title;
+
+  @OneToMany(mappedBy = "movie")
+  List<Rate> rates;
 
   public Movie() {
-    this.rates = new ArrayList<Integer>();
+    this.rates = new ArrayList<Rate>();
   }
 
   /**
@@ -36,14 +40,24 @@ public class Movie {
     }
 
     Double sum = 0.0;
-    for (Integer rate : rates) {
-      sum += rate;
+    for (Rate rate : rates) {
+      sum += rate.getScore();
     }
     return sum / rates.size();
   }
 
-  public void addRate(int rate) {
+  public void addRate(Rate rate) {
     this.rates.add(rate);
   }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
 
 }
