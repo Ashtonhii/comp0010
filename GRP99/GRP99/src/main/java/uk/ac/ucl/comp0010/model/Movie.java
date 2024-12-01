@@ -34,7 +34,7 @@ public class Movie {
    * @throws EmptyRateException it throws if there is no rate
    */
 
-  public Double getAverageRate() throws EmptyRateException {
+  public Double computeAverageRate() throws EmptyRateException {
     if (rates.size() < 1) {
       throw new EmptyRateException();
     }

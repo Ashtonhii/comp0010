@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import uk.ac.ucl.comp0010.model.Movie;
 
 /**
- * Movie repository.
+ * A repository manages Movie.
  */
 public interface MovieRepository extends CrudRepository<Movie, Long> {
 
