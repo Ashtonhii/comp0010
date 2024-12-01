@@ -14,6 +14,8 @@ public class Rate {
 
   @Id
   @GeneratedValue
+  Long id;
+
   Integer score;
 
   @ManyToOne
@@ -44,6 +46,12 @@ public class Rate {
     this.movie = movie;
   }
 
+  public Long getId() {
+    return id;
+  }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
 
 }

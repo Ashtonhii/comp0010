@@ -10,6 +10,9 @@ import uk.ac.ucl.comp0010.model.Rate;
 import uk.ac.ucl.comp0010.repository.MovieRepository;
 import uk.ac.ucl.comp0010.repository.RateRepository;
 
+/**
+ * A controller manages rate objects.
+ */
 @RestController
 public class RateController {
 
@@ -22,6 +25,12 @@ public class RateController {
     this.rateRepository = rateRepository;
   }
 
+  /**
+   * It handles creating new rate for a movie.
+   * 
+   * @param params movie_id, and score
+   * @return saved rate object
+   */
   @PostMapping(value = "/rates/addRate")
   public ResponseEntity<Rate> addRate(@RequestBody Map<String, String> params) {
     Movie movie = movieRepository.findById(Long.valueOf(params.get("movie_id"))).orElseThrow();
